@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persisit Pad</title>
+  <script defer src="main.bundle.js"></script><script defer src="install.bundle.js"></script><script defer src="cards.bundle.js"></script></head>
+  <body>
+    <nav id="navbar">
+      <div class="ml-3 nav-btn">
+        <a class="btn btn-sm btn-dark" id="buttonInstall" role="button">Install!</a>
+      </div>
+      <h1 class="mr-3">PersistPad - Notes</h1>
+    </nav>
+    <section class="container">
+      <div class="row justify-space-around m-4" id="notes-group">
+        <!-- Notes will be populated here -->
+      </div>
+      <div class="container">
+        <form id="note-form">
+          <div class="form-group">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-input" for="title" id="title" placeholder="Enter Note Title" required/>
+          </div>
+          <div class="form-group">
+            <label for="content" class="form-label">Content:</label>
+            <textarea class="form-input" for="content" id="content" placeholder="Enter Note Content" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="tags" class="form-label">Tags (comma separated):</label>
+            <input type="text" class="form-input" for="tags" id="tags" placeholder="e.g. work, project" />
+          </div>
+          <div class="flex-row justify-flex-end p-1">
+            <input class="btn btn-lg btn-info" id="add-note" type="submit" value="Add Note">
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
