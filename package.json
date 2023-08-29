@@ -1,0 +1,27 @@
+{
+  "name": "persistpad",
+  "version": "1.0.0",
+  "description": "A progressive web application (PWA) text editor that ensures your notes and code snippets are safely stored offline using IndexedDB.",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/solowon27/PersistPad.git"
+  },
+  "author": "Solomon Tegegne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solowon27/PersistPad/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  },
+  "homepage": "https://github.com/solowon27/PersistPad#readme"
+}
