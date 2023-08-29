@@ -8,7 +8,6 @@
     "start": "npm run build && cd server && node server.js",
     "server": "cd server nodemon server.js --ignore client",
     "build": "cd client && npm run build",
-    "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start"
   },
   "repository": {
@@ -21,7 +20,28 @@
     "url": "https://github.com/solowon27/PersistPad/issues"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "@babel/core": "^7.22.11",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/runtime": "^7.22.11",
+    "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.1",
+    "cpy-cli": "^5.0.0",
+    "css-loader": "^6.8.1",
+    "express": "^4.18.2",
+    "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
+    "idb": "^7.1.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^6.6.0"
   },
+  "dependencies": {
+    "cors": "^2.8.5"
+  },
+
   "homepage": "https://github.com/solowon27/PersistPad#readme"
 }
