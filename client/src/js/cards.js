@@ -53,17 +53,24 @@ form.addEventListener('submit', (event) => {
   fetchNotes();
 });
 
+function formatTimestamp(date) {
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+  return date.toLocaleString('en-US', options);
+}
+
 const fetchNotes = async () => {
   const result = await getDb();
 
   let notesHTML = ` `;
-
+  
   for (let note of result) {
+    const formattedTimestamp = formatTimestamp(new Date(note.timestamp));
+    
     notesHTML += `
     <div class="note card-rounded col-md-3 m-2">
       <div class="note-header card-rounded">
         <h2>${note.title}</h2>
-        <p><em>${note.timestamp}</em></p>
+        <p><em>${formattedTimestamp}</em></p>
       </div>
       <div class="note-content">
         <p>${note.content}</p>
