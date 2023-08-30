@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -22,6 +23,13 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Persisit Pad',
+      }),
+
+      // Copies our images to the dist folder
+      new CopyPlugin({
+        patterns: [
+          { from: './src/images', to: 'images' },
+        ],
       }),
      
       // Injects our custom service worker
@@ -55,9 +63,24 @@ module.exports = () => {
       // CSS loaders
       rules: [
         {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+      ],
+    },
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/',  // output folder for images
+          },
         },
+      ],
+    },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
