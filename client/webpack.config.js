@@ -35,10 +35,10 @@ module.exports = () => {
         fingerprints: false,
         inject: true,
         name: 'Persist Pad',
-        short_name: 'Contact',
+        short_name: 'PP',
         description: 'save your Notes!',
         background_color: '#225ca3',
-        theme_color: '#225ca3',
+        theme_color: '#3A0CA3',
         start_url: './',
         publicPath: './',
         icons: [
