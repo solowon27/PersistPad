@@ -42,6 +42,18 @@ export const getDb = async () => {
     }
 };
 
+export const getSingleNoteFromDb = async (id) => {
+  try {
+    const db = await openDB(DB_NAME, 1);
+    const tx = db.transaction(STORE_NAME, 'readonly');
+    const store = tx.objectStore(STORE_NAME);
+    const result = await store.get(id);
+    return result;
+  } catch (err) {
+    console.error("Error getting single note from the database:", err);
+  }
+};
+
 export const deleteDb = async (id) => {
     try {
         const db = await openDB(DB_NAME, 1);
